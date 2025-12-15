@@ -1,0 +1,9 @@
+pip install sqlalchemy pyodbc python-dotenv
+pip install PyPDF2
+pip install nltk
+pip install upstash-redis
+pip install groq
+pip install flask-jwt-extended
+pip install supabase
+pip install pinecone
+pip install gradio_client
