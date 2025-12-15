@@ -1,8 +1,12 @@
-pip install sqlalchemy pyodbc python-dotenv
-pip install PyPDF2
-pip install nltk
-pip install upstash-redis
-pip install groq
-pip install flask-jwt-extended
-pip install supabase
-pip install pinecone
+flask
+gunicorn
+sqlalchemy
+pyodbc
+python-dotenv
+PyPDF2
+nltk
+upstash-redis
+groq
+flask-jwt-extended
+supabase
+pinecone
