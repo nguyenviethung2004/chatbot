@@ -10,3 +10,4 @@ groq
 flask-jwt-extended
 supabase
 pinecone
+numpy>=1.26.0
