@@ -15,3 +15,4 @@ pymysql
 email-validator
 pydantic
 gradio_client
+flask-cors
