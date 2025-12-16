@@ -16,6 +16,10 @@ CORS(app)
 app.config['JWT_SECRET_KEY'] = os.getenv('FLASK_JWT_SECRET_KEY')
 init_jwt(app)
 
+@app.route("/health", methods=["GET"])
+def health():
+    return {"status": "ok"}, 200
+
 app.register_blueprint(auth_bp)
 app.register_blueprint(upload_bp)
 app.register_blueprint(chat_bp)
