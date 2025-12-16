@@ -8,6 +8,7 @@ from sqlalchemy import text
 from src.utils.pdf_loader import load_pdf_text, split_text_into_chunks, load_pdf_text_from_bytes
 from src.utils.text_preprocess import preprocess_text
 from src.utils.pinecone_service import upsert_chunks
+import traceback
 
 
 
@@ -104,14 +105,14 @@ def upload_pdf_service1(session, file, uploaded_by: str, filename: str = None, d
             filesize_mb=file_size_mb,
             description=description
         )
-
+        print("Save metadata OK")
         chunk_ids, texts = process_and_save_chunks1(session, document_id, pdf_bytes)
-
+        print(f"Step 2: Generated {len(chunk_ids)} chunks")
         if not chunk_ids:
             raise ValueError("No chunks generated.")
-        
+        print("Step 3: Upserting to Pinecone...")
         upsert_chunks(chunk_ids, texts, user_id=uploaded_by, document_id=document_id)
-
+        print("Step 4: Pinecone upsert OK")
         return {
             "success": True,
             "document_id": document_id,
@@ -119,7 +120,9 @@ def upload_pdf_service1(session, file, uploaded_by: str, filename: str = None, d
         }
 
     except Exception as e:
+        traceback.print_exc()   
         return {"success": False, "error": str(e)}
+
    
 
 
