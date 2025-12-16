@@ -3,6 +3,10 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 
+try:
+    stopwords.words('english')
+except LookupError:
+    nltk.download('stopwords')
 
 def clean_text(text: str) -> str:
     text = text.lower()
