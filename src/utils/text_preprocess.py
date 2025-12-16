@@ -1,13 +1,13 @@
 import re
-import nltk
-from nltk.corpus import stopwords
-from nltk.stem import PorterStemmer
+# import nltk
+# from nltk.corpus import stopwords
+# from nltk.stem import PorterStemmer
 
-for resource in ["stopwords", "punkt", "punkt_tab"]:
-    try:
-        nltk.data.find(resource)
-    except LookupError:
-        nltk.download(resource)
+# for resource in ["stopwords", "punkt", "punkt_tab"]:
+#     try:
+#         nltk.data.find(resource)
+#     except LookupError:
+#         nltk.download(resource)
 
 
 def clean_text(text: str) -> str:
