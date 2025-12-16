@@ -3,10 +3,12 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 
-try:
-    stopwords.words('english')
-except LookupError:
-    nltk.download('stopwords')
+for resource in ["stopwords", "punkt", "punkt_tab"]:
+    try:
+        nltk.data.find(resource)
+    except LookupError:
+        nltk.download(resource)
+
 
 def clean_text(text: str) -> str:
     text = text.lower()
@@ -16,17 +18,17 @@ def clean_text(text: str) -> str:
 
 
 def remove_stopwords(text: str) -> str:
-    stop_words = set(stopwords.words('english'))
-    words = nltk.word_tokenize(text)
-    filtered = [word for word in words if word not in stop_words and len(word) > 2]
-    return ' '.join(filtered)
+    # stop_words = set(stopwords.words('english'))
+    # words = nltk.word_tokenize(text)
+    # filtered = [word for word in words if word not in stop_words and len(word) > 2]
+    return text
 
 
 def stem_text(text: str) -> str:
-    stemmer = PorterStemmer()
-    words = nltk.word_tokenize(text)
-    stemmed = [stemmer.stem(word) for word in words]
-    return ' '.join(stemmed)
+    # stemmer = PorterStemmer()
+    # words = nltk.word_tokenize(text)
+    # stemmed = [stemmer.stem(word) for word in words]
+    return text
 
 def preprocess_text(text: str) -> str:
     cleaned = clean_text(text)
