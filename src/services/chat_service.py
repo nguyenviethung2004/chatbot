@@ -331,9 +331,9 @@ def handle_chat_query(session, user_id: str, query_text: str, conversation_id: i
                 if top_chunk_ids:
                     all_chunk_ids.extend(top_chunk_ids)
                 else:
-                    print(f"Không tìm thấy chunk nào phù hợp trong FAISS cho {faiss_doc_name}.")
+                    print(f"Không tìm thấy chunk nào phù hợp trong Pipecone cho {faiss_doc_name}.")
             except Exception as e:
-                print(f"Lỗi khi tìm vector trong FAISS: {e}")
+                print(f"Lỗi khi tìm vector trong Pipecone: {e}")
                 continue
 
         if all_chunk_ids:
