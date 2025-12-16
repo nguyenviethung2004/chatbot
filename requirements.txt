@@ -11,3 +11,6 @@ flask-jwt-extended
 supabase
 pinecone
 numpy>=1.26.0
+pymysql
+email-validator
+pydantic
